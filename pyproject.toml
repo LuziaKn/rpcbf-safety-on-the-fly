@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "rpcbf"
+version = "0.1.0"
+description = ""
+authors = [
+    "Oswin So <oswinso@gmail.com>",
+    "Luzia Knoedler <luzia.knoedler@gmail.com>"
+]
+packages = [
+    { include = "rpcbf", from = "src" }
+]
+
+[tool.poetry.dependencies]
+python = ">=3.10, <4.0"
+typer = "^0.12.3"
+jax = "^0.4.31"
+jaxtyping = "^0.2.33"
+einops = "^0.8.0"
+matplotlib = "^3.9.2"
+attrs = "^24.2.0"
+diffrax = "^0.6.0"
+ipdb = "^0.13.13"
+loguru = "^0.7.2"
+optax = "^0.2.3"
+flax = "^0.8.5"
+og = {git = "https://github.com/oswinso/og.git"}
+seaborn = "^0.13.2"
+qpsolvers = {extras = ["open-source-solvers"], version = "^4.3.3"}
+tensorflow-probability = "^0.24.0"
+shapely = "^2.0.6"
+tqdm = "^4.66.5"
+jaxproxqp = {git = "https://github.com/oswinso/jaxproxqp.git"}
+interpax = "^0.3.3"
+jax-jumpy = "^1.0.0"
+mpire = "^2.10.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

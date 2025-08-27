@@ -17,10 +17,10 @@ Run the following in the root directory of the project:
 ```bash
 poetry install
 ```
-This will install all the dependencies required for the project in a virtual environment.
-Run the following to activate the virtual environment:
+This will install all the dependencies required for the project in a virtual environment (`poetry env info` to get information on where it was saved).
+Source the virtual environment:
 ```bash
- poetry shell
+ source {cache-dir}/virtualenvs/.venv/bin/activate
 ```
 
 ## Quickstart
