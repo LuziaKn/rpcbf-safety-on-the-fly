@@ -1,11 +1,14 @@
 import functools as ft
 
 import ipdb
+import jax
 import jax.numpy as jnp
 import jax.random as jr
+
 import matplotlib.pyplot as plt
 import numpy as np
 import tqdm
+from loguru import logger
 from flax import nnx
 from matplotlib.colors import CenteredNorm
 from og.jax_utils import jax_jit_np, jax_vmap
@@ -13,12 +16,12 @@ from og.jax_utils import jax_jit_np, jax_vmap
 from rpcbf.pcbf_rollout import PCBFRollout
 from rpcbf.pcbf_rollout_jax import PCBFRolloutJax
 from rpcbf.dyn.doubleint_wall import DoubleIntWall
-from rpcbf.env_noise import UniformEnvNoise
+from rpcbf.env_noise import UniformEnvNoise, ZeroEnvNoise
 from rpcbf.reg_rollout import RegRollout
 from rpcbf.sampler.zero_sampler import ZeroSampler
 from rpcbf.utils.path_utils import get_plot_dir
 
-import jax
+
 jax.config.update("jax_enable_x64", True)
 
 def main():
@@ -61,6 +64,7 @@ def main():
     Tp1_x, T_u = rollouter.rollout(nom_pol, x0, rollout_T)
 
     env_noise = UniformEnvNoise(task)
+    # env_noise = ZeroEnvNoise(task)
 
     n_rollout_test = 25
 
@@ -126,7 +130,7 @@ def main():
     print(f"Safe: {n_safe}/{n_rollout_test}")
     print(f"Plot saved to {fig_path}")
 
-    f
+
 
 
 if __name__ == "__main__":
